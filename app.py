@@ -18,7 +18,7 @@ tweet=st.text_area("Enter the tweet to predict the sentiment of the tweet: ")
 
 if st.button("Predict Sentiment") and tweet.strip():
     sequence = tokenizer.texts_to_sequences([tweet])
-    padded_sequence = pad_sequences(sequence, maxlen=166, padding='post')
+    padded_sequence = pad_sequences(sequence, maxlen=117, padding='pre')
     prediction = model.predict(padded_sequence)
     predicted_class = np.argmax(prediction, axis=1)[0]
 
